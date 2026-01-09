@@ -63,7 +63,7 @@ with st.sidebar:
     )
     
     st.markdown("---")
-    st.markdown("**How it works:**\n\nUpload a screenshot of a chat/bio. The AI will analyze the text inside the image instantly.")
+    st.markdown("**How it works:**\n\nUpload a screenshot of a chat/bio. The AI will analyze the text inside the image instantly. But currently it only support English language")
 
 # Main Layout
 col1, col2 = st.columns([1, 1])
@@ -105,3 +105,4 @@ with col2:
     else:
 
         st.info("Waiting for upload...")
+
