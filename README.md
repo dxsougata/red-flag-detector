@@ -55,3 +55,31 @@ An AI-powered application that analyzes chat screenshots and dating profiles to 
 
     python -m streamlit run app.py
 ```
+
+☁️ Deployment
+This app is deployed on Streamlit Community Cloud.
+
+To deploy your own version:
+
+Fork this repo.
+
+Go to Streamlit Cloud.
+
+Connect your GitHub and deploy.
+
+Add your GROQ_API_KEY in the Advanced Settings -> Secrets area.
+
+🤝 Contributing
+Got a funny idea for a new "flag"? Open an issue or submit a pull request!
+
+Fork it.
+
+Create your feature branch (git checkout -b feature/CoolNewMode).
+
+Commit your changes.
+
+Push to the branch.
+
+Open a Pull Request.
+
+Built with 🚩 and ☕ by Sougata
