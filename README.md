@@ -53,5 +53,5 @@ An AI-powered application that analyzes chat screenshots and dating profiles to 
 
 ```Bash
 
-    streamlit run app.py
+    python -m streamlit run app.py
 ```
