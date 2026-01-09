@@ -5,7 +5,8 @@ import base64
 # --- CONFIGURATION ---
 # Replace with your actual GroqCloud API Key
 # (Best practice: Store this in an environment variable or a .env file)
-GROQ_API_KEY = "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" 
+# Instead of "gsk_...", we look for the key in Streamlit's secrets
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
 # Initialize the Groq Client
 client = Groq(api_key=GROQ_API_KEY)
@@ -102,4 +103,5 @@ with col2:
                 st.markdown("### The Verdict:")
                 st.write(result)
     else:
+
         st.info("Waiting for upload...")
