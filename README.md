@@ -38,7 +38,7 @@ An AI-powered application that analyzes chat screenshots and dating profiles to 
     pip install -r requirements.txt
 ```
 
-3. Set up API Keys
+3. **Set up API Keys**
 ```bash
     Get a free API key from GroqCloud Console.
     Create a file named .streamlit/secrets.toml in your project folder:
@@ -49,37 +49,40 @@ An AI-powered application that analyzes chat screenshots and dating profiles to 
     GROQ_API_KEY = "gsk_..."
 ```
 
-4.Run the app
+4.**Run the app**
 
 ```Bash
 
     python -m streamlit run app.py
 ```
 
-☁️ Deployment
-This app is deployed on Streamlit Community Cloud.
+## ☁️ Deployment
 
-To deploy your own version:
+- **This app is deployed on Streamlit Community Cloud.**
 
-Fork this repo.
+- **To deploy your own version:**
 
-Go to Streamlit Cloud.
+- **Fork this repo.**
 
-Connect your GitHub and deploy.
+- **Go to Streamlit Cloud.**
 
-Add your GROQ_API_KEY in the Advanced Settings -> Secrets area.
+- **Connect your GitHub and deploy.**
 
-🤝 Contributing
-Got a funny idea for a new "flag"? Open an issue or submit a pull request!
+- **Add your GROQ_API_KEY in the Advanced Settings -> Secrets area.**
 
-Fork it.
+## 🤝 Contributing
 
-Create your feature branch (git checkout -b feature/CoolNewMode).
+- **Got a funny idea for a new "flag"? Open an issue or submit a pull request!**
 
-Commit your changes.
+- **Fork it.**
 
-Push to the branch.
+- **Create your feature branch (git checkout -b feature/CoolNewMode).**
 
-Open a Pull Request.
+- **Commit your changes.**
+
+- **Push to the branch.**
+
+- **Open a Pull Request.**
+
 
 Built with 🚩 and ☕ by Sougata
