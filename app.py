@@ -116,9 +116,9 @@ with tab1:
                     lang_ctx = "Note: Text may be Hinglish/Benglish. Understand the slang."
                     
                     if mode == "Red Flag Scanner 🚩":
-                        prompt = f"{lang_ctx} Analyze this chat image. Identify toxic traits. Be brutally honest. Give a 'Toxic Score' (0-100%)."
+                        prompt = f"{lang_ctx} Analyze this chat image. Identify toxic traits. Be brutally honest. Give a 'Toxic Score' (0-100%). Do it within 20 sentence with 3 bullet points 1st one include score in percentage."
                     elif mode == "Rizz Rater ⚡":
-                        prompt = f"{lang_ctx} Rate the Rizz (1-10). Is it cringe or smooth?"
+                        prompt = f"{lang_ctx} Rate the Rizz (0-100%). Is it cringe or smooth?Do it within 20 sentence with 3 bullet points 1st one include score in percentage."
                     else:
                         prompt = f"{lang_ctx} Summarize this conversation."
 
@@ -165,9 +165,9 @@ with tab2:
                     lang_ctx = "The following is a raw WhatsApp chat export. It may contain Hinglish (Hindi-English) or Benglish. Ignore timestamps."
                     
                     if mode == "Red Flag Scanner 🚩":
-                        prompt = f"{lang_ctx} Analyze the relationship dynamic in this chat log. Who is putting in more effort? Are there signs of manipulation? Give a Toxic Score."
+                        prompt = f"{lang_ctx} Analyze the relationship dynamic in this chat log. Who is putting in more effort? Are there signs of manipulation? Give a Toxic Score between 0 to 100 %. Do it within 20 sentence with 3 bullet points 1st one include score in percentage."
                     elif mode == "Rizz Rater ⚡":
-                        prompt = f"{lang_ctx} Read this chat history. Rate the flirting skills. Who has better 'game'? Quote specific lines."
+                        prompt = f"{lang_ctx} Read this chat history. Rate the flirting skills. Who has better 'game'? Quote specific lines.Do it within 20 sentence with 3 bullet points 1st one include score in percentage."
                     else:
                         prompt = f"{lang_ctx} Summarize the timeline of this conversation. How did the mood change from start to finish?"
 
@@ -180,4 +180,5 @@ with tab2:
                     
         ##except Exception as e:
             ##st.error("Error reading file. Make sure it's a valid UTF-8 text file.")
+
 
