@@ -97,7 +97,7 @@ with st.sidebar:
     st.info("💡 Tip: For WhatsApp exports, choose the '.txt' tab.")
 
 # Main Tabs
-tab1, tab2 = st.tabs(["📷 Upload Screenshot", "📂 Upload Text File (.txt)"])
+tab1, tab2 = st.tabs([" **Upload Screenshot**", " **Upload Text File (.txt)**"])
 
 # --- TAB 1: IMAGE LOGIC (Existing) ---
 with tab1:
@@ -133,6 +133,7 @@ with tab1:
                         st.balloons()
 
 # --- TAB 2: TEXT FILE LOGIC (New!) ---
+# --- TAB 2: TEXT FILE LOGIC (FIXED) ---
 with tab2:
     st.markdown("### How to get your WhatsApp Chat:")
     st.caption("Open WhatsApp Chat > 3 dots > More > Export Chat > Without Media.")
@@ -140,16 +141,25 @@ with tab2:
     txt_file = st.file_uploader("Upload WhatsApp .txt file", type=['txt'], key="txt_upload")
     
     if txt_file:
-        # Read and decode the file
+        # FIX 1: Reset the file pointer to the beginning before reading
+        txt_file.seek(0)
+        
+        # FIX 2: robust decoding (Try UTF-8, if fails, try Latin-1)
         try:
-            # We use 'utf-8' to support Emojis and Hindi characters
             chat_content = txt_file.read().decode("utf-8")
+        except UnicodeDecodeError:
+            txt_file.seek(0) # Reset again before retry
+            chat_content = txt_file.read().decode("latin-1")
             
-            # Show a snippet of the chat
-            with st.expander("👁️ Preview Chat Log"):
-                st.text(chat_content[:1000] + "...") # Show first 1000 chars
-            
-            if st.button("ANALYZE FULL CHAT", type="primary", key="btn_txt"):
+        # Show a snippet of the chat
+        with st.expander("👁️ Preview Chat Log"):
+            st.text(chat_content[:1000] + "...") 
+        
+        # We store the content in session state so it doesn't disappear on button click
+        st.session_state['chat_content'] = chat_content
+        
+        if st.button("ANALYZE FULL CHAT", type="primary", key="btn_txt"):
+            if 'chat_content' in st.session_state:
                 with st.spinner("📖 Reading the whole history (Hinglish/Benglish supported)..."):
                     
                     lang_ctx = "The following is a raw WhatsApp chat export. It may contain Hinglish (Hindi-English) or Benglish. Ignore timestamps."
@@ -161,7 +171,8 @@ with tab2:
                     else:
                         prompt = f"{lang_ctx} Summarize the timeline of this conversation. How did the mood change from start to finish?"
 
-                    result = analyze_text_file(chat_content, prompt)
+                    # Use the text stored in variable
+                    result = analyze_text_file(st.session_state['chat_content'], prompt)
                     
                     st.markdown("---")
                     st.subheader("📝 Chat Analysis")
@@ -169,3 +180,4 @@ with tab2:
                     
         except Exception as e:
             st.error("Error reading file. Make sure it's a valid UTF-8 text file.")
+
