@@ -87,7 +87,7 @@ def analyze_text_file(chat_content, prompt):
 
 # --- 5. MAIN UI LAYOUT ---
 st.title("🚩 Red Flag Detector")
-st.caption("Powered by GroqCloud • Supports Screenshots & WhatsApp Exports")
+st.caption("Powered by LLM • Supports Screenshots & WhatsApp Exports")
 
 # Sidebar
 with st.sidebar:
@@ -180,5 +180,6 @@ with tab2:
                     
         ##except Exception as e:
             ##st.error("Error reading file. Make sure it's a valid UTF-8 text file.")
+
 
 
