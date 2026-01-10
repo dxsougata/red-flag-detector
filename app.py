@@ -178,6 +178,6 @@ with tab2:
                     st.subheader("📝 Chat Analysis")
                     st.write(result)
                     
-        except Exception as e:
-            st.error("Error reading file. Make sure it's a valid UTF-8 text file.")
+        ##except Exception as e:
+            ##st.error("Error reading file. Make sure it's a valid UTF-8 text file.")
 
